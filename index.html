@@ -555,7 +555,11 @@
                         </p>
                         <div class="text-small text-secondary">
                           <div class="mb-1">
-                            <center>&copy; Yoga Jafni Pratama Putra. All rights reserved 2024.
+                            <center>&copy; <span id="copyright-year"></span> Yoga Jafni Pratama Putra. All rights
+                              reserved
+                              <script>const currentYear = new Date().getFullYear();
+                                document.getElementById('copyright-year').textContent = currentYear;
+                              </script>
                           </div>
                           <div>
                           </div>
