@@ -454,18 +454,18 @@ footer a:not(.nav-link) {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 500px;
-  margin-right: 500px;
+  margin-left: 100px;
+  margin-right: 100px;
   position: relative;
   padding-top: 20px;
 }
 
 .chat-container.text-end {
-  justify-content: center;
+  justify-content: flex-end;
 }
 
-.chat-container.text-end {
-  justify-content: flex-end;
+.chat-container.text-start {
+  justify-content: flex-start;
 }
 
 .chat-icon {
@@ -484,13 +484,13 @@ footer a:not(.nav-link) {
 }
 
 .chat-bubble {
-  max-width: 55%;
+  max-width: 70%;
   min-width: 200px;
   padding: 15px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   border-radius: 20px;
-  text-align: left;
+  text-align: center;
   position: relative;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -500,7 +500,7 @@ footer a:not(.nav-link) {
   background-color: #F6E05E;
   color: black;
   border-radius: 25px;
-  border-top-left-radius: 30px;
+  border-top-left-radius: 40px;
 }
 
 /* Right Chat Bubble */
@@ -508,7 +508,59 @@ footer a:not(.nav-link) {
   background-color: #dc3545;
   color: white;
   border-radius: 25x;
-  border-top-right-radius: 30px;
+  border-top-right-radius: 40px;
+}
+
+
+/* 🔹 Media Queries untuk Tablet */
+@media (max-width: 768px) {
+  .chat-container {
+    max-width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .chat-bubble {
+    max-width: 75%; 
+    font-size: 14px; 
+    padding: 10px; 
+  }
+
+  .chat-icon {
+    width: 30px; 
+    height: 30px;
+  }
+
+  .chat-icon-left {
+    left: -35px; 
+  }
+
+  .chat-icon-right {
+    right: -35px;
+  }
+}
+
+/* 🔹 Media Queries untuk HP */
+@media (max-width: 480px) {
+  .chat-bubble {
+    max-width: 85%; 
+    font-size: 14px; 
+    padding: 8px; 
+  }
+
+  .chat-icon {
+    width: 25px; 
+    height: 25px;
+  }
+
+  .chat-icon-left {
+    left: -15px; 
+  }
+
+  .chat-icon-right {
+    right: -15px;
+  }
 }
 
 .track-section {
@@ -540,3 +592,56 @@ footer a:not(.nav-link) {
   position: relative;
   z-index: 2;
 }
+
+@media (max-width: 768px) {
+  .track-section {
+    position: relative; 
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .track-section .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%); 
+  }
+}
+
+
+.github-section {
+  position: relative;
+  background: url('/images/Preview\ Portfolio\ -\ BTN\ Konven.png') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; /* Full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.github-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); 
+  z-index: 1;
+}
+
+.github-content {
+  position: relative;
+  z-index: 2;
+}
+

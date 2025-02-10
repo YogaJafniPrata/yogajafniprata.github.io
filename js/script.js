@@ -56,13 +56,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (isPlaying) {
           audio.pause();
-          soundIcon.src = iconDefault; // Ganti ke ikon statis
+          soundIcon.src = iconDefault; 
       } else {
           audio.play();
-          soundIcon.src = iconActive; // Ganti ke ikon animasi
+          soundIcon.src = iconActive;
       }
 
       isPlaying = !isPlaying;
+  });
+
+  audio.addEventListener("ended", function () {
+      audio.currentTime = 0; 
+      audio.play(); 
   });
 });
 
