@@ -42,4 +42,27 @@ function googleTranslateElementInit() {
     });
 });
 
-  
+document.addEventListener("DOMContentLoaded", function () {
+  let isPlaying = false;
+  let audio = document.getElementById("localMusic");
+  let soundButton = document.getElementById("soundButton");
+  let soundIcon = document.getElementById("soundIcon");
+
+  let iconDefault = "./images/Sound - Icon Statis.png"; // Ikon saat musik mati
+  let iconActive = "./images/Sound - Icon.gif"; // Gunakan GIF animasi saat musik menyala
+
+  soundButton.addEventListener("click", function (event) {
+      event.preventDefault(); // Mencegah reload halaman
+
+      if (isPlaying) {
+          audio.pause();
+          soundIcon.src = iconDefault; // Ganti ke ikon statis
+      } else {
+          audio.play();
+          soundIcon.src = iconActive; // Ganti ke ikon animasi
+      }
+
+      isPlaying = !isPlaying;
+  });
+});
+
