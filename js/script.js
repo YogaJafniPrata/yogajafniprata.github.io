@@ -71,3 +71,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const portfolioTrigger = document.getElementById("portfolioTrigger");
+  const popupPortfolio = document.getElementById("popupPortfolio");
+  const overlay = document.getElementById("overlay");
+  const closePopup = document.getElementById("closePopup");
+
+  // Fungsi untuk menampilkan popup
+  portfolioTrigger.addEventListener("click", function () {
+      popupPortfolio.style.display = "block";
+      overlay.style.display = "block";
+      setTimeout(() => {
+          popupPortfolio.style.transform = "translate(-50%, -50%) scale(1)";
+      }, 50);
+  });
+
+  // Fungsi untuk menutup popup
+  closePopup.addEventListener("click", function () {
+      popupPortfolio.style.transform = "translate(-50%, -50%) scale(0.8)";
+      setTimeout(() => {
+          popupPortfolio.style.display = "none";
+          overlay.style.display = "none";
+      }, 300);
+  });
+
+  // Tutup popup jika klik di luar area popup
+  overlay.addEventListener("click", function () {
+      closePopup.click();
+  });
+});
+
