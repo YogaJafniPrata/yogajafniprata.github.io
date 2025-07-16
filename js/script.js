@@ -43,33 +43,41 @@ function googleTranslateElementInit() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let isPlaying = false;
-  let audio = document.getElementById("localMusic");
-  let soundButton = document.getElementById("soundButton");
-  let soundIcon = document.getElementById("soundIcon");
+  let iconDefault = "./images/Sound - Icon Statis.png";
+  let iconActive = "./images/Sound - Icon.gif";
 
-  let iconDefault = "./images/Sound - Icon Statis.png"; // Ikon saat musik mati
-  let iconActive = "./images/Sound - Icon.gif"; // Gunakan GIF animasi saat musik menyala
+  function setupAudioToggle(audioId, buttonId, iconId) {
+    const audio = document.getElementById(audioId);
+    const button = document.getElementById(buttonId);
+    const icon = document.getElementById(iconId);
+    let isPlaying = false;
 
-  soundButton.addEventListener("click", function (event) {
-      event.preventDefault(); // Mencegah reload halaman
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
 
       if (isPlaying) {
-          audio.pause();
-          soundIcon.src = iconDefault; 
+        audio.pause();
+        icon.src = iconDefault;
       } else {
-          audio.play();
-          soundIcon.src = iconActive;
+        audio.play();
+        icon.src = iconActive;
       }
 
       isPlaying = !isPlaying;
-  });
+    });
 
-  audio.addEventListener("ended", function () {
-      audio.currentTime = 0; 
-      audio.play(); 
-  });
+    audio.addEventListener("ended", function () {
+      icon.src = iconDefault;
+      isPlaying = false;
+    });
+  }
+
+  setupAudioToggle("localMusic", "soundButton", "soundIcon");
+  setupAudioToggle("localMusic2", "soundButton2", "soundIcon2");
+  setupAudioToggle("localMusic3", "soundButton3", "soundIcon3");
+  setupAudioToggle("localMusic4", "soundButton4", "soundIcon4");
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const portfolioTrigger = document.getElementById("portfolioTrigger");
