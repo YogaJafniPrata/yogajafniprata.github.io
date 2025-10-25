@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById(audioId);
     const button = document.getElementById(buttonId);
     const icon = document.getElementById(iconId);
+    audio.loop = true;
     let isPlaying = false;
 
     button.addEventListener("click", function (event) {
